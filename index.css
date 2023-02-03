@@ -1,0 +1,27 @@
+@font-face{
+    font-family: Halvetica;
+    src: url(/font/HelveticaNeue.ttc);
+}
+
+
+/*global style*/
+*,*::before,*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/*variables*/
+:root{
+    /*font*/
+    --FF: Halvetica,sans-serif;
+}
+
+
