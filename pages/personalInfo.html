@@ -10,10 +10,53 @@
     <div class="personalInfo-page-container">
 
         <div class="personalInfo-left-container">
-           
+            <div class="back-arrow-box">
+                <img src="/images/Vector.svg" alt="back arrow">
+            </div>
+            <div class="personalInf-box">
+                <header class="personalInfo-header">
+                    <h1>ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ</h1>
+                    <h1>1/3</h1>
+                </header>
+                <hr class="personalInf-line">
+                <div class="full-name-box">
+                    <div class="first-name-box">
+                        <label for="first-name" class="font-w5-s16">სახელი</label>
+                        <input type="text" id="first-name" class="font-w4-s16" placeholder="ანზორ">
+                        <p class="font-w3-s14">მინიმუმ 2 ასო, ქართული ასოები</p>
+                    </div>
+                    <div class="last-name-box">
+                        <label for="last-name" class="font-w5-s16">გვარი</label>
+                        <input type="text" id="last-name" class="font-w4-s16" placeholder="მუმლაძე">
+                        <p class="font-w3-s14">მინიმუმ 2 ასო, ქართული ასოები</p>
+                    </div>
+                </div>
+                <div class="personal-image-box">
+                    <span class="font-w5-s16">პირადი ფოტოს ატვირთვა</span>
+                    <label for="personal-image">ატვირთვა</label>
+                    <input type="file" id="personal-image" accept="image/*" style="display:none;">
+                </div>
+                <div class="general-info-box">
+                    <span class="font-w5-s16">ჩემ შესახებ (არასავალდებულო)</span>
+                    <textarea name="general info" id="general-info" class="font-w4-s16" placeholder="ზოგადი ინფო შენ შესახებ"></textarea>
+                </div>
+                <div class="email-box">
+                    <label for="email" class="font-w5-s16">ელ.ფოსტა</label>
+                    <input type="email" id="email" class="font-w4-s16" placeholder="anzorr666@redberry.ge">
+                    <p class="font-w3-s14">უნდა მთავრდებოდეს @redberry.ge-ით</p>
+                </div>
+                <div class="phone-number-box">
+                    <label for="phone-number" class="font-w5-s16">მობილურის ნომერი</label>
+                    <input type="number" id="phone-number" class="font-w4-s16" placeholder="+995 551 12 34 56">
+                    <p class="font-w3-s14">უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</p>
+                </div>
+                <div class="next-page-btn">
+                    <button class="transition-btn font-w5-s16" id="personalInfo-next-btn">შემდეგი</button>
+                </div>
+            </div>
         </div>
         <div class="personalInfo-right-container">
-          
+        
         </div>
     </div>
 

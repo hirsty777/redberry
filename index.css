@@ -7,8 +7,9 @@
 :root{
     /*font*/
     --FF: Halvetica,sans-serif;
+    /*button color default*/
+    --DBC:#6B40E3;
 }
-
 
 /*global style*/
 *,
@@ -18,13 +19,14 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 img {
     display: block;
     max-width: 100%;
     height: auto;
 }
-
+textarea{
+    resize: none;
+}
 input,
 button,
 textarea {
@@ -40,7 +42,55 @@ body{
     min-height: 100vh;
 }
 
-
+/*back arrow box*/
+.back-arrow-box{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    top:45px;
+    left:45px;
+}
+/*text style for weight/500 size/16*/
+.font-w5-s16{
+    font-family:var(--FF);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: #000000;
+}
+/*input fields*/
+.font-w4-s16{
+    font-family:var(--FF);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.6);
+}
+/*validation texts*/
+.font-w3-s14{
+    font-family:var(--FF);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+    color: #2E2E2E;
+}
+/*transition button default style*/
+.transition-btn{
+    background-color:var(--DBC);
+    width: 151px;
+    height: 48px;
+    letter-spacing: 0.08em;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    outline: transparent;
+}
 
 
 
@@ -51,18 +101,15 @@ body{
     background: url(/images/shutterstock_2189773743\ 1.png) no-repeat  center;
     background-size: cover;
 }
-
 .main-header{
     width: 100%;
     height: 90px;
 }
-
 .redberry-logo{
     position: relative;
     left:70px;
     top: 25px;
 }
-
 .main-line{
     position: relative;
     margin: 0 70px 0 70px;
@@ -75,14 +122,12 @@ body{
     width: 464px;
     margin: 25% auto ;
 }
-
 .add-resume-btn{
     width: 464px;
     padding: 18px 60px;
     background: #1A1A1A;
     border-radius: 8px;
     color: rgb(255, 255, 255);
-
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -92,3 +137,131 @@ body{
 
 
 /* personalInf page */
+.personalInfo-page-container{
+    display: flex;
+    flex-direction: row;
+}
+
+/*left side*/
+.personalInfo-left-container{
+    width: 57%;
+    min-height: 100vh;
+}
+
+.personalInf-box{
+    position: relative;
+    max-width: 800px;
+    min-height: 900px;
+    margin: 45px auto 0 auto;
+}
+
+/*personalinfo header*/
+.personalInfo-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.personalInfo-header h1:nth-child(1){
+    font-family:var(--FF);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #1A1A1A;
+}
+.personalInfo-header h1:nth-child(2){
+    font-family: var(--FF);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: right;
+}
+.personalInf-line{
+    border: 1px solid rgb(0, 0, 0);
+}
+
+/*personalInfo name field*/
+.full-name-box{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 77px;
+}
+.first-name-box,
+.last-name-box{
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+#first-name,
+#last-name{
+    height: 50px;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+    padding: 0 0 0 10px;
+}
+
+
+/* personal image */
+.personal-image-box{
+    margin-top: 30px;
+}
+.personal-image-box span{
+    font-size: 18px;
+    line-height: 22px;
+}
+.personal-image-box label{
+    margin-left: 20px;
+    padding: 10px 10px 12px;
+    background: #0E80BF;
+    border-radius: 4px;
+}
+
+/* general info (textarea) */
+.general-info-box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    margin-top: 50px;
+}
+#general-info{
+    padding-left: 15px;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+}
+
+/* email */
+.email-box,
+.phone-number-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    margin-top: 30px;
+}
+#email,
+#phone-number{
+    height: 50px;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+    padding: 0 0 0 10px;
+}
+/*personalInfo next page btn*/
+.next-page-btn{
+    display: flex;
+    justify-content: right;
+}
+#personalInfo-next-btn{
+    margin-top: 160px;
+}
+
+
+/*right side*/
+#personalInfo-right-container{
+    width: 43%;
+    background-color: blueviolet;
+}
