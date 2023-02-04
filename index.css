@@ -3,9 +3,17 @@
     src: url(/font/HelveticaNeue.ttc);
 }
 
+/*variables*/
+:root{
+    /*font*/
+    --FF: Halvetica,sans-serif;
+}
+
 
 /*global style*/
-*,*::before,*::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,11 +25,70 @@ img {
     height: auto;
 }
 
+input,
+button,
+textarea {
+    font-family: var(--FF); 
+}
 
-/*variables*/
-:root{
-    /*font*/
-    --FF: Halvetica,sans-serif;
+.html{
+    font-family: var(--FF);
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
 }
 
 
+
+
+
+
+/* main page */
+.main-page-container{
+    min-height: 100vh;
+    background: url(/images/shutterstock_2189773743\ 1.png) no-repeat  center;
+    background-size: cover;
+}
+
+.main-header{
+    width: 100%;
+    height: 90px;
+}
+
+.redberry-logo{
+    position: relative;
+    left:70px;
+    top: 25px;
+}
+
+.main-line{
+    position: relative;
+    margin: 0 70px 0 70px;
+    top: 50px;
+    border: 1px solid #1A1A1A;
+}
+
+/*BTN*/
+.add-resume-container{
+    width: 464px;
+    margin: 25% auto ;
+}
+
+.add-resume-btn{
+    width: 464px;
+    padding: 18px 60px;
+    background: #1A1A1A;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+
+
+/* personalInf page */
