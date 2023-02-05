@@ -3,7 +3,7 @@ const firstNameInput = document.getElementById('first-name');
 const lastNameInput = document.getElementById('last-name');
 const uploadedImage = document.getElementById('personal-image');
 const generalInfo = document.getElementById('general-info');
-const emailrInput = document.getElementById('email');
+const emailInput = document.getElementById('email');
 const phoneNumberInput = document.getElementById('phone-number');
 
 
@@ -72,8 +72,27 @@ generalInfo.addEventListener('keyup',()=>{
     generalInfo.value != '' ? generalInfoHeader.style.display = 'block' :  generalInfoHeader.style.display = 'none';
 });
 //email
-emailrInput.addEventListener('keyup',()=>{
-    displayEmail.textContent = emailrInput.value
+emailInput.addEventListener('keyup',()=>{
+    //live update of input text on page
+    displayEmail.textContent = emailInput.value;
+    //verify, input must contain @redberry.ge at end
+    const emailLabel = document.getElementById('email-label');
+    const emailValidVector = document.getElementById('email-valid-vector');
+    const emailNotValidVector = document.getElementById('email-notvalid-vector');
+    let regex = new RegExp('[a-z0-9]+@redberry.ge$');
+    if(regex.test(emailInput.value)){
+        //valid
+        emailLabel.style.color = '#000000';
+        emailInput.style.borderColor= '#98E37E';
+        emailValidVector.style.display = 'block';
+        emailNotValidVector.style.display = 'none';
+    }else{
+        //not valid
+        emailLabel.style.color = '#E52F2F';
+        emailInput.style.borderColor= '#E52F2F';
+        emailNotValidVector.style.display = 'block'; 
+        emailValidVector.style.display = 'none';
+    }
  });
 //number
 phoneNumberInput.addEventListener('keyup',()=>{
