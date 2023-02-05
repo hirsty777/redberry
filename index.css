@@ -7,8 +7,10 @@
 :root{
     /*font*/
     --FF: Halvetica,sans-serif;
-    /*button color default*/
+    /*default button color */
     --DBC:#6B40E3;
+    /*resume main color */
+    --RMC:#F93B1D;
 }
 
 /*global style*/
@@ -32,11 +34,9 @@ button,
 textarea {
     font-family: var(--FF); 
 }
-
 .html{
     font-family: var(--FF);
 }
-
 body{
     width: 100%;
     min-height: 100vh;
@@ -260,8 +260,82 @@ body{
 }
 
 
-/*right side*/
-#personalInfo-right-container{
+/* personalIbfo right side */
+.personalInfo-right-container{
     width: 43%;
-    background-color: blueviolet;
+}
+
+.personalInfo-live-display{
+    width: 662px;
+    margin: 0 auto;
+    display: flex;
+}
+
+/* data side (left) */
+.personalInfo-live-display-data{
+    width: 432px;
+}
+/* name */
+.personalInfo-live-display-fullname{
+    display: flex;
+    gap: 20px;
+}
+.display-fullname-firstname,
+.display-fullname-lastname{
+    font-family:var(--FF);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+    color:var(--RMC);
+}
+/*contacts*/
+.personalInfo-live-display-contacts{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.display-contacts-email,
+.display-contacts-number{
+    font-family:var(--FF);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #1A1A1A;
+}
+/*about general information*/
+.personalInfo-live-display-generalInf{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.display-generalInf-header{
+    font-family:var(--FF);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color:var(--RMC);
+}
+.display-generalInf-data{
+    font-family:var(--FF);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: lowercase;
+}
+
+
+/* image side(right) */
+.personalInfo-live-display-image{
+    width: 246px;
+    height: 246px;
+}
+.personalInfo-live-display-image img{
+    border-radius: 133px;
+    height: 100%;
 }
