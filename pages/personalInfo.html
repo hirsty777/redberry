@@ -21,14 +21,18 @@
                 <hr class="personalInf-line">
                 <div class="full-name-box">
                     <div class="first-name-box">
-                        <label for="first-name" class="font-w5-s16">სახელი</label>
+                        <label for="first-name" id="first-name-label" class="font-w5-s16">სახელი</label>
                         <input type="text" id="first-name" class="font-w4-s16" placeholder="ანზორ">
                         <p class="font-w3-s14">მინიმუმ 2 ასო, ქართული ასოები</p>
+                        <img src="/images/valid.svg" class="validVector" id="first-name-valid-vector" alt="valid vector">
+                        <img src="/images/notVAlid.svg" class="notValidVector" id="first-name-notvalid-vector" alt="not valid vector">
                     </div>
                     <div class="last-name-box">
-                        <label for="last-name" class="font-w5-s16">გვარი</label>
+                        <label for="last-name"  id="last-name-label" class="font-w5-s16">გვარი</label>
                         <input type="text" id="last-name" class="font-w4-s16" placeholder="მუმლაძე">
                         <p class="font-w3-s14">მინიმუმ 2 ასო, ქართული ასოები</p>
+                        <img src="/images/valid.svg" class="validVector" id="last-name-valid-vector" alt="valid vector">
+                        <img src="/images/notVAlid.svg" class="notValidVector" id="last-name-notvalid-vector" alt="not valid vector">
                     </div>
                 </div>
                 <div class="personal-image-box">
@@ -93,6 +97,6 @@
         </div>
     </div>
 
-    <script src="../index.js"></script>
+    <script src="../js/personalInfo.js"></script>
 </body>
 </html>

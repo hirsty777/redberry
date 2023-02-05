@@ -189,12 +189,12 @@ body{
 }
 .first-name-box,
 .last-name-box{
+    position: relative;
     width: 370px;
     display: flex;
     flex-direction: column;
     row-gap: 8px;
 }
-
 #first-name,
 #last-name{
     height: 50px;
@@ -202,6 +202,19 @@ body{
     border-radius: 4px;
     padding: 0 0 0 10px;
 }
+.validVector{
+    position: absolute;
+    display: none;
+    right: 15px;
+    top:42%;
+}
+.notValidVector{
+    position: absolute;
+    display: none;
+    right: -30px;
+    top:41%;
+}
+
 
 
 /* personal image */
