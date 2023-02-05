@@ -313,6 +313,7 @@ body{
     gap: 15px;
 }
 .display-generalInf-header{
+    display: none;
     font-family:var(--FF);
     font-style: normal;
     font-weight: 700;
