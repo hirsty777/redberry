@@ -185,4 +185,21 @@ personalInfoNextBtn.addEventListener('click',()=>{
 });
 
 
+//back to main page (arrow BTN)
+const backArrow = document.getElementById('personalInf-back-arrow');
+backArrow.addEventListener('click',()=>{
+    //clear input from this page when bakc arrow is clicked 
+    localStorage.removeItem('firstname');
+    localStorage.removeItem('lastname');
+    localStorage.removeItem('generalInfo');
+    localStorage.removeItem('email');
+    localStorage.removeItem('phone');
+    localStorage.removeItem('perosnalImg');
 
+    localStorage.removeItem('validFirstname');
+    localStorage.removeItem('validLastnameWR');
+    localStorage.removeItem('validEmail');
+    localStorage.removeItem('validPhone');
+
+    window.location = '../index.html'
+});
