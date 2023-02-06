@@ -96,7 +96,26 @@ emailInput.addEventListener('keyup',()=>{
  });
 //number
 phoneNumberInput.addEventListener('keyup',()=>{
-    displayNumber.textContent = phoneNumberInput.value
+    //live update of input text on page
+    displayNumber.textContent = phoneNumberInput.value;
+    //verify, input must be geo number format
+    const numberLabel = document.getElementById('number-label');
+    const numberValidVector = document.getElementById('number-valid-vector');
+    const numberNotValidVector = document.getElementById('number-notvalid-vector');
+    let regex = /^[995]{3}\d{9}$/;
+    if(phoneNumberInput.value.match(regex)){
+        //valid
+        numberLabel.style.color = '#000000';
+        phoneNumberInput.style.borderColor= '#98E37E';
+        numberValidVector.style.display = 'block';
+        numberNotValidVector.style.display = 'none';
+    }else{
+        //not valid
+        numberLabel.style.color = '#E52F2F';
+        phoneNumberInput.style.borderColor= '#E52F2F';
+        numberNotValidVector.style.display = 'block'; 
+        numberValidVector.style.display = 'none';
+    }
 });
 //personal image 
 uploadedImage.addEventListener('change',()=>{
