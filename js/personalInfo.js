@@ -83,14 +83,14 @@ lastNameInput.addEventListener('keyup',()=>{
         lastNameInput.style.borderColor= '#98E37E';
         lastnameValidVector.style.display = 'block';
         lastnameNotValidVector.style.display = 'none';
-        localStorage.setItem('validLastnameWR',lastnameWR);
+        localStorage.setItem('validLastname',lastnameWR);
     }else{
         //not valid
         lastNameLabel.style.color = '#E52F2F';
         lastNameInput.style.borderColor= '#E52F2F';
         lastnameNotValidVector.style.display = 'block'; 
         lastnameValidVector.style.display = 'none';
-        localStorage.removeItem('validLastnameWR');
+        localStorage.removeItem('validLastname');
     }
 });
 
@@ -178,12 +178,6 @@ uploadedImage.addEventListener('change',()=>{
    
 });
 
-//=>personal infromation page, input fields varification  /page 1/
-personalInfoNextBtn.addEventListener('click',()=>{
-    
-        
-});
-
 
 //back to main page (arrow BTN)
 const backArrow = document.getElementById('personalInf-back-arrow');
@@ -197,9 +191,25 @@ backArrow.addEventListener('click',()=>{
     localStorage.removeItem('perosnalImg');
 
     localStorage.removeItem('validFirstname');
-    localStorage.removeItem('validLastnameWR');
+    localStorage.removeItem('validLastname');
     localStorage.removeItem('validEmail');
     localStorage.removeItem('validPhone');
 
     window.location = '../index.html'
 });
+
+//to next page BTN
+personalInfoNextBtn.addEventListener('click',()=>{
+    if(localStorage.getItem('validFirstname') && localStorage.getItem('validLastname')&&
+    localStorage.getItem('validEmail') && localStorage.getItem('validPhone') &&
+    localStorage.getItem('perosnalImg')) {
+        window.location = 'experience.html'
+    }else{
+        const perImgUpload = document.getElementById('personal-img-upload');//change style on iamge upload text
+        perImgUpload.style.color = '#E52F2F'
+        return
+    }
+    
+});
+
+

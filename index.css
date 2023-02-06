@@ -95,11 +95,12 @@ body{
 
 
 
-/* main page */
+/*     main page    */
 .main-page-container{
     min-height: 100vh;
     background: url(/images/shutterstock_2189773743\ 1.png) no-repeat  center;
     background-size: cover;
+    
 }
 .main-header{
     width: 100%;
@@ -117,13 +118,16 @@ body{
     border: 1px solid #1A1A1A;
 }
 
-/*BTN*/
+
+/*BTN*/  /*not finished, need to try alternative of position absolute*/
 .add-resume-container{
+    position: absolute;
+    left: 37.9%; /*left  728px = (728/1920)*100 */
     width: 464px;
     margin: 25% auto ;
 }
 .add-resume-btn{
-    width: 464px;
+    width: 100%;
     padding: 18px 60px;
     background: #1A1A1A;
     border-radius: 8px;
@@ -133,7 +137,13 @@ body{
     line-height: 24px;
     cursor: pointer;
 }
-
+.agency-logo{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left:56%;
+    top: 49%;
+}
 
 
 /* personalInf page */
