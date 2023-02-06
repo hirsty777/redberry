@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="personal-image-box">
-                    <span class="font-w5-s16">პირადი ფოტოს ატვირთვა</span>
+                    <span class="font-w5-s16" id="personal-img-upload">პირადი ფოტოს ატვირთვა</span>
                     <label for="personal-image">ატვირთვა</label>
                     <input type="file" id="personal-image" accept="image/*" style="display:none;">
                 </div>
@@ -52,6 +52,7 @@
                     <img src="/images/valid.svg" class="validVector" id="email-valid-vector" alt="valid vector">
                     <img src="/images/notVAlid.svg" class="notValidVector" id="email-notvalid-vector" alt="not valid vector">
                 </div>
+                <!-- phone number field-->
                 <div class="phone-number-box">
                     <label for="phone-number" id="number-label" class="font-w5-s16">მობილურის ნომერი</label>
                     <input type="number" id="phone-number" class="font-w4-s16" placeholder="+995 551 12 34 56">
@@ -64,6 +65,7 @@
                 </div>
             </div>
         </div>
+        <!--live display of input values-->
         <div class="personalInfo-right-container">
             <div class="personalInfo-live-display">
                 <!--data side-->
