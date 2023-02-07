@@ -445,3 +445,17 @@ body{
     margin: 20px auto 0 auto;
     border: 1px solid #C1C1C1;
 }
+
+/*style for more expereience object*/
+.test-div{
+    margin-bottom: 900px;
+}
+
+/*2 experience  page RIGHT side  */
+.experience-live-display{
+    width: 662px;
+    margin: 24px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

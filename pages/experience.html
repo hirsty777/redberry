@@ -21,38 +21,41 @@
                 </header>
                 <hr class="personalInf-line">
                 <!--inputs //-->
-            <div id="test-div">
+
                 <div class="position-box input-box-style1">
                     <label for="position" id="position-label" class="font-w5-s16">თანამდებობა</label>
-                    <input type="text" id="position" class="font-w4-s16 input-style1" placeholder="დეველოპერი, დიზაინერი, ა.შ.">
+                    <input type="text" id="position" class="font-w4-s16 input-style1" onkeyup="positionInput(value,0)" placeholder="დეველოპერი, დიზაინერი, ა.შ.">
                     <p class="font-w3-s14">მინიმუმ 2 სიმბოლო</p>
                 </div> 
                 <div class="employer-box input-box-style1">
                     <label for="employer" id="employer-label" class="font-w5-s16">დამსაქმებელი</label>
-                    <input type="text" id="employer" class="font-w4-s16 input-style1" placeholder="დამსაქმებელი">
+                    <input type="text" id="employer" class="font-w4-s16 input-style1" onkeyup="employerInput(value,0)" placeholder="დამსაქმებელი">
                     <p class="font-w3-s14">მინიმუმ 2 სიმბოლო</p>
                 </div>
                 <!--dates of work experience-->
                 <div class="inputs-wrap work-date-box">
                     <div class="starttime-box input-box-style2">
                         <label for="starttime" id="starttime-label" class="font-w5-s16 ">დაწყების რიცხვი</label>
-                        <input type="date" id="starttime" class="font-w4-s16 input-style1">
+                        <input type="date" id="starttime" class="font-w4-s16 input-style1" onchange="startDateInput(value,0)">
                     </div>
                     <div class="endtime-box input-box-style2">
                         <label for="endtime" id="endtime-label" class="font-w5-s16 ">დამთავრების რიცხვი</label>
-                        <input type="date" id="endtime" class="font-w4-s16 input-style1">
+                        <input type="date" id="endtime" class="font-w4-s16 input-style1" onchange="endDateInput(value,0)">
                     </div>
                 </div> 
                 <!--description textarea for wor experience-->
                 <div class="experience-info-box">
                     <span class="font-w5-s16">აღწერა</span>
-                    <textarea name="experience info" id="experience-info" class="font-w4-s16" placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
+                    <textarea name="experience info" id="experience-info" class="font-w4-s16" onkeyup="experienceInfInput(value,0)"
+                    placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
                 </div>
                 <hr class="end-line-experience">
-            </div>
-                <div id="added-experience">
-                    
+
+
+                <div id="add-more-experience-box">
+                    <!-- space for more experience inputs-->
                 </div>
+
                 <!--button to ad more experinece-->
                 <button type="button" id="add-more-experience">მეტი გამოცდილების დამატება</button>
                 
@@ -105,6 +108,21 @@
             <hr class="line-for-display">
             <!--live display of experinece input values-->
             <div class="experience-live-display">
+                <div class="display-position">
+                    
+                </div>
+                <div class="display-employer">
+                    
+                </div>
+                <div class="display-experience-date">
+                    <span class="display-start-date"></span>
+                    <span class="display-end-date"></span>
+                </div>
+                <div class="displaye-experince-info">
+
+                </div>
+             </div>
+             <div id="experience-live-display-added">
 
             </div>
         </div>
