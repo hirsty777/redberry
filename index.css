@@ -50,6 +50,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     border-radius: 50%;
     top:45px;
     left:45px;
@@ -81,8 +82,41 @@ body{
     line-height: 21px;
     color: #2E2E2E;
 }
+
+/*inputs wrap (in case thers 2 inputs in 1 line)*/
+.inputs-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+/*inputs box style1*/
+.input-box-style1{
+    position: relative;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+/*inputs box style2*/
+.input-box-style2{
+    position: relative;
+    width:370px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+/*input field style1*/
+.input-style1{
+    height: 50px;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+    padding: 0 10px 0 10px;
+}
+
+
 /*transition button default style*/
 .transition-btn{
+    cursor: pointer;
     background-color:var(--DBC);
     width: 151px;
     height: 48px;
@@ -91,6 +125,8 @@ body{
     border-radius: 4px;
     outline: transparent;
 }
+
+
 
 
 
@@ -146,7 +182,7 @@ body{
 }
 
 
-/* personalInf page */
+/* personalInf page */ 
 .personalInfo-page-container{
     display: flex;
     flex-direction: row;
@@ -156,6 +192,7 @@ body{
 .personalInfo-left-container{
     width: 57%;
     min-height: 100vh;
+    position: relative;
 }
 
 .personalInf-box{
@@ -191,10 +228,8 @@ body{
     border: 1px solid rgb(0, 0, 0);
 }
 
-/*personalInfo name field*/
+/*  personalInfo name  field  */
 .full-name-box{
-    display: flex;
-    justify-content: space-between;
     margin-top: 77px;
 }
 .first-name-box,
@@ -210,7 +245,7 @@ body{
     height: 50px;
     border: 1px solid #BCBCBC;
     border-radius: 4px;
-    padding: 0 0 0 10px;
+    padding: 0 10px 0 10px;
 }
 .validVector{
     position: absolute;
@@ -236,6 +271,7 @@ body{
     line-height: 22px;
 }
 .personal-image-box label{
+    cursor: pointer;
     margin-left: 20px;
     padding: 10px 10px 12px;
     background: #0E80BF;
@@ -250,9 +286,9 @@ body{
     margin-top: 50px;
 }
 #general-info{
-    padding-left: 15px;
+    padding: 10px;
     width: 100%;
-    height: 100px;
+    height: 123px;
     border: 1px solid #BCBCBC;
     border-radius: 4px;
 }
@@ -279,19 +315,27 @@ body{
     display: flex;
     justify-content: right;
 }
-#personalInfo-next-btn{
-    margin-top: 160px;
+
+.next-btn{
+    position: absolute;
+    bottom: 65px;
+    right: 13.6%; /* experimentin with % 13.6% = 150 px */
+}
+.prev-btn{
+    position: absolute;
+    bottom: 65px;
+    left: 13.6%; /* experimentin with % 13.6% = 150 px */
 }
 
 
-/* personalIbfo right side */
+/* personalIbfo RIGHT side =============================*/
 .personalInfo-right-container{
     width: 43%;
 }
 
 .personalInfo-live-display{
     width: 662px;
-    margin: 0 auto;
+    margin: 48px auto 0 auto;
     display: flex;
 }
 
@@ -354,7 +398,6 @@ body{
     text-transform: lowercase;
 }
 
-
 /* image side(right) */
 .personalInfo-live-display-image{
     width: 246px;
@@ -363,4 +406,42 @@ body{
 .personalInfo-live-display-image img{
     border-radius: 133px;
     height: 100%;
+}
+
+
+/* 2 styles for experience page ==============>*/
+.position-box{
+    margin-top: 77px;
+}
+
+.employer-box{
+    margin-top: 31px;
+}
+
+.work-date-box{
+    margin-top: 31px;
+}
+
+.experience-info-box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    margin-top: 33px;
+}
+#experience-info{
+    padding: 10px;
+    width: 100%;
+    height: 123px;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+}
+
+.end-line-experience{
+    border: 1px solid #C1C1C1;
+    margin-top: 58px;
+}
+.line-for-display{
+    width: 662px;
+    margin: 20px auto 0 auto;
+    border: 1px solid #C1C1C1;
 }
