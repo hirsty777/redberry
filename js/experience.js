@@ -1,18 +1,17 @@
 //variables /////////////////////////////////////////////////
-//experience infromation page, inputs 
-const positions = document.querySelectorAll('.position-value');
-const employer = document.getElementById('employer');
-const starttime = document.getElementById('starttime');
-const endtime = document.getElementById('endtime');
-const experienceInfo = document.getElementById('experience-info');
-//personal infromation page, display inputs       
+
+//variables to display inputs values from peronalinformation page       
 const displayFirstname = document.getElementById('display-firstname');
 const displayLastname = document.getElementById('display-lastname');
 const displayEmail = document.getElementById('display-email');
 const displayNumber = document.getElementById('display-number');
 const displayAbout = document.getElementById('display-about');
 const displayUploadedImage =document.getElementById('display-image');
+const generalInfoHeader = document.getElementById('display-about-header');
 
+
+//experience inputs display
+const displayHeader = document.getElementsByClassName('display-experience-header');//header for experience display
 
 const addMoreExp = document.getElementById('add-more-experience');
 const experiencePrevBtn = document.getElementById('experience-prev-btn');
@@ -21,6 +20,7 @@ let numb = 0;
 
 
 //display input values of personalinformation page  (previos page values)
+generalInfoHeader.style.display = 'block';
 displayFirstname.textContent = localStorage.getItem('firstname');
 displayLastname.textContent = localStorage.getItem('lastname');
 if(localStorage.getItem('perosnalImg')){
@@ -33,38 +33,52 @@ displayNumber.textContent = localStorage.getItem('phone');
 
 
 
-
 //=>experience infromation page, display input values and verify 
 //position
 function positionInput(value, index){
     const displayExp = document.querySelectorAll('.display-position');
-    displayExp[index].textContent = value
+    displayExp[index].textContent = value ;
+
+    displayHeader[0].style.display = 'block' ;
 }
 
 
 //employer
 function employerInput(value, index){
     const displayEmployer = document.querySelectorAll('.display-employer');
-    displayEmployer[index].textContent = value
+    displayEmployer[index].textContent = value;
+    
+    displayHeader[0].style.display = 'block' ;
 }
 
 //start date 
 function startDateInput(value, index){
     const displayStartTime = document.querySelectorAll('.display-start-date');
-    displayStartTime[index].textContent = value
+    displayStartTime[index].textContent = value;
+
+    displayHeader[0].style.display = 'block' ;
+
 }
 
 //end date 
 function endDateInput(value, index){
     const displayEndTime = document.querySelectorAll('.display-end-date');
     displayEndTime[index].textContent = '- '+ value;
+
+    displayHeader[0].style.display = 'block' ;
+
 }
 
 //experience info 
 function experienceInfInput(value, index){
     const displayExperienceInf = document.querySelectorAll('.displaye-experince-info');
     displayExperienceInf[index].textContent = value;
+
+    displayHeader[0].style.display = 'block' ;
+
 }
+
+
 
 
 
@@ -121,11 +135,14 @@ addMoreExp.addEventListener('click',()=>{
     displayDiv.className = 'experience-live-display';
     displayDiv.innerHTML = `
 <div class="experience-live-display">
+    
+    <div class="job-wraper font-w5-s16">
     <div class="display-position">
         
     </div>
     <div class="display-employer">
         
+    </div>
     </div>
     <div class="display-experience-date">
         <span class="display-start-date"></span>
