@@ -13,7 +13,7 @@ const generalInfoHeader = document.getElementById('display-about-header');
 //experience inputs display
 const displayHeader = document.getElementsByClassName('display-experience-header');//header for experience display
 
-const addMoreExp = document.getElementById('add-more-experience');
+const addMoreExp = document.getElementById('add-more-experience-btn');
 const experiencePrevBtn = document.getElementById('experience-prev-btn');
 const experienceNextBtn = document.getElementById('experience-next-btn');
 
