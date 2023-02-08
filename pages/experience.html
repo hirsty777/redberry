@@ -23,31 +23,41 @@
                 <!--inputs //-->
 
                 <div class="position-box input-box-style1">
-                    <label for="position" id="position-label" class="font-w5-s16">თანამდებობა</label>
-                    <input type="text" id="position" class="font-w4-s16 input-style1" onkeyup="positionInput(value,0)" placeholder="დეველოპერი, დიზაინერი, ა.შ.">
+                    <label for="position" id="position-label-id" class="font-w5-s16 position-label">თანამდებობა</label>
+                    <input type="text" id="position-id" class="font-w4-s16 input-style1 position" onkeyup="positionInput(value,0)" placeholder="დეველოპერი, დიზაინერი, ა.შ.">
                     <p class="font-w3-s14">მინიმუმ 2 სიმბოლო</p>
+                    <img src="/images/valid.svg" class="validVector position-valid-vector"  alt="valid vector">
+                    <img src="/images/notVAlid.svg" class="notValidVector position-notvalid-vector" alt="not valid vector">
                 </div> 
                 <div class="employer-box input-box-style1">
-                    <label for="employer" id="employer-label" class="font-w5-s16">დამსაქმებელი</label>
-                    <input type="text" id="employer" class="font-w4-s16 input-style1" onkeyup="employerInput(value,0)" placeholder="დამსაქმებელი">
+                    <label for="employer" id="employer-label-id" class="font-w5-s16 employer-label">დამსაქმებელი</label>
+                    <input type="text" id="employer-id" class="font-w4-s16 input-style1 employer" onkeyup="employerInput(value,0)" placeholder="დამსაქმებელი">
                     <p class="font-w3-s14">მინიმუმ 2 სიმბოლო</p>
+                    <img src="/images/valid.svg" class="validVector employer-valid-vector"  alt="valid vector">
+                    <img src="/images/notVAlid.svg" class="notValidVector employer-notvalid-vector" alt="not valid vector">
                 </div>
                 <!--dates of work experience-->
                 <div class="inputs-wrap work-date-box">
                     <div class="starttime-box input-box-style2">
-                        <label for="starttime" id="starttime-label" class="font-w5-s16 ">დაწყების რიცხვი</label>
-                        <input type="date" id="starttime" class="font-w4-s16 input-style1" onchange="startDateInput(value,0)">
+                        <label for="starttime" id="starttime-label-id" class="font-w5-s16 starttime-label">დაწყების რიცხვი</label>
+                        <input type="date" id="starttime-id" class="font-w4-s16 input-style1 starttime" onchange="startDateInput(value,0)">
+                        <img src="/images/valid.svg" class="validVector starttime-valid-vector"  alt="valid vector">
+                        <img src="/images/notVAlid.svg" class="notValidVector starttime-notvalid-vector" alt="not valid vector">
                     </div>
                     <div class="endtime-box input-box-style2">
-                        <label for="endtime" id="endtime-label" class="font-w5-s16 ">დამთავრების რიცხვი</label>
-                        <input type="date" id="endtime" class="font-w4-s16 input-style1" onchange="endDateInput(value,0)">
+                        <label for="endtime" id="endtime-label-id" class="font-w5-s16 endtime-label">დამთავრების რიცხვი</label>
+                        <input type="date" id="endtime-id" class="font-w4-s16 input-style1 endtime" onchange="endDateInput(value,0)">
+                        <img src="/images/valid.svg" class="validVector endtime-valid-vector"  alt="valid vector">
+                        <img src="/images/notVAlid.svg" class="notValidVector endtime-notvalid-vector" alt="not valid vector">
                     </div>
                 </div> 
                 <!--description textarea for wor experience-->
                 <div class="experience-info-box">
-                    <span class="font-w5-s16">აღწერა</span>
-                    <textarea name="experience info" id="experience-info" class="font-w4-s16" onkeyup="experienceInfInput(value,0)"
+                    <span class="font-w5-s16 experience-label" id="experience-info-label">აღწერა</span>
+                    <textarea name="experience info" id="experience-info" class="font-w4-s16 experience" onkeyup="experienceInfInput(value,0)"
                     placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
+                    <img src="/images/valid.svg" class="validVector experience-valid-vector"  alt="valid vector">
+                    <img src="/images/notVAlid.svg" class="notValidVector experience-notvalid-vector" alt="not valid vector">
                 </div>
                 <hr class="end-line-experience">
 

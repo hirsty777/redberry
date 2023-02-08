@@ -77,7 +77,7 @@ lastNameInput.addEventListener('keyup',()=>{
     const lastnameValidVector = document.getElementById('last-name-valid-vector');
     const lastnameNotValidVector = document.getElementById('last-name-notvalid-vector');
     const lastnameWR =lastNameInput.value.replace(/\s/g, '') //Whitespace Remove
-    if(/^[ა-ჰ]{2,10}$/i.test(lastnameWR)){
+    if(/^[ა-ჰ]{2,20}$/i.test(lastnameWR)){
         //valid
         lastNameLabel.style.color = '#000000';
         lastNameInput.style.borderColor= '#98E37E';
