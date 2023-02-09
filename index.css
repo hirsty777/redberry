@@ -518,3 +518,9 @@ body{
     text-transform: capitalize;
     color: #000000;
 }
+
+
+/* 3 styles for education page ==============>*/
+.education-box{
+    margin-top: 77px;
+}
