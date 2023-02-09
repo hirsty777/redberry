@@ -156,7 +156,7 @@ window.onload = ()=>{
 
 
 //personal informations \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-//display input values of personalinformation page  (previos page values)
+//display personalinformation page input values (previos page values)
 generalInfoHeader.style.display = 'block';
 displayFirstname.textContent = localStorage.getItem('firstname');
 displayLastname.textContent = localStorage.getItem('lastname');
@@ -194,11 +194,13 @@ function positionInput(value, index){
         position[index].style.borderColor= '#98E37E';
         validVector[index].style.display = 'block';
         notValidVector[index].style.display = 'none';
+        localStorage.setItem(`validPosition${index}`,value);
     }else{
         positionLabel[index].style.color = '#E52F2F';
         position[index].style.borderColor= '#E52F2F';
         validVector[index].style.display = 'none';
         notValidVector[index].style.display = 'block';
+        localStorage.removeItem(`validPosition${index}`);
     }
 }
 
@@ -223,11 +225,13 @@ function employerInput(value, index){
         employer[index].style.borderColor= '#98E37E';
         validVector[index].style.display = 'block';
         notValidVector[index].style.display = 'none';
+        localStorage.setItem(`validEmployer${index}`,value);
     }else{
         employerLabel[index].style.color = '#E52F2F';
         employer[index].style.borderColor= '#E52F2F';
         validVector[index].style.display = 'none';
         notValidVector[index].style.display = 'block';
+        localStorage.removeItem(`validEmployer${index}`);
     }
 }
 
@@ -251,6 +255,7 @@ function startDateInput(value, index){
         notValidVector[index].style.display = 'none';
         validVector[index].style.top = "57%";//adjust vector position so its not on top of input calendar logo
         validVector[index].style.right = '-30px';//adjust vector position so its not on top of input calendar logo
+        localStorage.setItem(`validStartDate${index}`,value);
     }else{
         startDate[index].style.borderColor= '#E52F2F';
         startDateLabel[index].style.color = '#E52F2F';
@@ -258,6 +263,7 @@ function startDateInput(value, index){
         notValidVector[index].style.display = 'block';
         notValidVector[index].style.top = "57%";//adjust vector position so its not on top of input calendar logo
         notValidVector[index].style.right = '-30px';//adjust vector position so its not on top of input calendar logo
+        localStorage.removeItem(`validStartDate${index}`);
     }
 
 }
@@ -282,6 +288,7 @@ function endDateInput(value, index){
         notValidVector[index].style.display = 'none';
         validVector[index].style.top = "57%";//adjust vector position so its not on top of input calendar logo
         validVector[index].style.right = '-30px';//adjust vector position so its not on top of input calendar logo
+        localStorage.setItem(`validEndtime${index}`,value);
     }else{
         endtime[index].style.borderColor= '#E52F2F';
         endtimeLabel[index].style.color = '#E52F2F';
@@ -289,6 +296,7 @@ function endDateInput(value, index){
         notValidVector[index].style.display = 'block';
         notValidVector[index].style.top = "57%";//adjust vector position so its not on top of input calendar logo
         notValidVector[index].style.right = '-30px';//adjust vector position so its not on top of input calendar logo
+        localStorage.removeItem(`validEndtime${index}`);
     }
 
 }
@@ -313,13 +321,15 @@ function experienceInfInput(value, index){
         notValidVector[index].style.display = 'none';
         validVector[index].style.top = "53%";//adjust vector position 
         validVector[index].style.right = '-30px';//adjust vector position 
+        localStorage.setItem(`validExperienceInfo${index}`,value);
     }else{
         experience[index].style.borderColor= '#E52F2F';
         experienceLabel[index].style.color = '#E52F2F';
         validVector[index].style.display = 'none';
         notValidVector[index].style.display = 'block';
         notValidVector[index].style.top = "53%";//adjust vector position 
-        notValidVector[index].style.right = '-30px';//adjust vector position 
+        notValidVector[index].style.right = '-30px';//adjust vector position
+        localStorage.removeItem(`validExperienceInfo${index}`); 
     }
 }
 
@@ -413,13 +423,24 @@ addMoreExp.addEventListener('click',()=>{
 
 
 
-
+//go to previous page (peronalInf.html)
 experiencePrevBtn.addEventListener('click',()=>{
-    
     window.location = 'personalInfo.html'
 });
 
-
+//go to next page (education.html)
 experienceNextBtn.addEventListener('click',()=>{
-    localStorage.removeItem("size");
+    let counter = -1;
+    for(let i = 0; i <= numb; i++){
+        if(localStorage.getItem(`validPosition${i}`) && localStorage.getItem(`validEmployer${i}`) &&
+           localStorage.getItem(`validStartDate${i}`) && localStorage.getItem(`validEndtime${i}`) && 
+           localStorage.getItem(`validExperienceInfo${i}`)){
+        counter += 1;
+        };
+    };
+    if(counter===numb){
+        window.location = 'education.html';
+    }else{
+        console.log('not vald')
+    }
 });
