@@ -10,7 +10,7 @@ const displayLastname = document.getElementById('display-lastname');
 const displayEmail = document.getElementById('display-email');
 const displayNumber = document.getElementById('display-number');
 const displayAbout = document.getElementById('display-about');
-const displayUploadedImage =document.getElementById('display-image');
+const displayUploadedImage = document.getElementById('display-image');
 const generalInfoHeader = document.getElementById('display-about-header');
 
 
