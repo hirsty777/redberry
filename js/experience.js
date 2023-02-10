@@ -331,7 +331,7 @@ function experienceInfInput(value, index){
         notValidVector[index].style.right = '-30px';//adjust vector position
         localStorage.removeItem(`validExperienceInfo${index}`); 
     }
-}
+};
 
 
 
