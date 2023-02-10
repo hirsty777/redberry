@@ -21,22 +21,28 @@
                 <hr class="personalInf-line">
                 
                 <!--inputs //-->
-                <div class="education-box input-box-style1">
-                    <label for="education" id="education-label-id" class="font-w5-s16 education-label">სასწავლებელი</label>
-                    <input type="text" id="education-id" class="font-w4-s16 input-style1 education"
-                    onkeyup="educationInput(value,0)" placeholder="სასწავლებელი">
+                <div class="school-box input-box-style1">
+                    <label for="school" id="school-label-id" class="font-w5-s16 school-label">სასწავლებელი</label>
+                    <input type="text" id="school-id" class="font-w4-s16 input-style1 school"
+                    onkeyup="schoolInput(value,0)" placeholder="სასწავლებელი">
                     <p class="font-w3-s14">მინიმუმ 2 სიმბოლო</p>
-                    <img src="/images/valid.svg" class="validVector education-valid-vector"  alt="valid vector">
-                    <img src="/images/notVAlid.svg" class="notValidVector education-notvalid-vector" alt="not valid vector">
+                    <img src="/images/valid.svg" class="validVector school-valid-vector"  alt="valid vector">
+                    <img src="/images/notVAlid.svg" class="notValidVector school-notvalid-vector" alt="not valid vector">
                 </div> 
                 <!--education degree and date-->
                 <div class="inputs-wrap work-date-box">
                     <div class="degree-box input-box-style2">
+                        <!--dropdown-->
                         <label for="degree" id="degree-label-id" class="font-w5-s16 degree-label">ხარისხი</label>
-                        <select name="degree" id="degree" class="input-style1" >
-                            <option value="one">ewe</option>
-                            <option value="two">abwb</option>
-                        </select>
+                        <div id="degree-dropdown" class="input-style1" >
+                            <div class="select">
+                                <span class="selected">აირჩიეთ ხარისხი</span>
+                                <span class="dropdown-arrow"></span>
+                            </div>
+                            <ul class="menu">
+                                
+                            </ul>
+                        </div>
                         <img src="/images/valid.svg" class="validVector degree-valid-vector"  alt="valid vector">
                         <img src="/images/notVAlid.svg" class="notValidVector degree-notvalid-vector" alt="not valid vector">
                     </div>
@@ -73,8 +79,9 @@
                 <button class="transition-btn next-btn font-w5-s16 " id="experience-next-btn">შემდეგი</button>
             </div>
         </div>
-        <!--live display of personalinfo input values -->
+        <!-- RIGHT SIDE OF PAGE -->
         <div class="personalInfo-right-container">
+            <!-- display of personalinfo input values  1-->
             <div class="personalInfo-live-display">
                 <!--data side-->
                 <div class="personalInfo-live-display-data">
@@ -110,15 +117,17 @@
             </div>
                
             </div>
-            <!--line at end of personalinformation dispaly-->
+            <!--line at end of personalinformation dispaly 1 -->
             <hr class="line-for-display">
-            <!--live display of experinece input values-->
+            <!-- display of experinece input values  2 -->
             <div class="experience-live-display">
                 <h1 class="display-experience-header" id="display-experience-header">გამოცდილება</h1>
             </div>
             <div id="experience-live-display-added">
-                <!--space for inputs from experience page-->
+                <!--space for inputs from experience page 2 -->
             </div>
+            <hr class="line-for-display">
+
         </div>
     </div>
 

@@ -1,6 +1,12 @@
 //variables /////////////////////////////////////////////////
 const addMoreDisplayBox = document.getElementById('experience-live-display-added');//place where content gets added afret add more btn is clickde(inputs display)
 
+//dropdown menu
+const dropDown = document.getElementById('degree-dropdown');
+const menu = document.querySelector('.menu');
+const selected = document.querySelector('.selected');
+
+
 //variables to display inputs values from peronalinformation page       
 const displayFirstname = document.getElementById('display-firstname');
 const displayLastname = document.getElementById('display-lastname');
@@ -33,6 +39,28 @@ const experienceNextBtn = document.getElementById('experience-next-btn');
 
 // on page load
 window.onload = ()=>{
+    //api get degrees data
+    async function getDegrees(){
+        const response = await fetch('https://resume.redberryinternship.ge/api/degrees',{
+            method:'GET',
+            headers:{
+                'accept': 'application/json'
+            }        
+        });
+        if(!response.ok){
+            throw new Error(`${response.status}`)
+        }
+        const data = await response.json();
+        //for each create li element and deploy on html
+        data.forEach(value =>{
+            const newLi = document.createElement('li');
+            newLi.innerHTML = value.title;
+            menu.appendChild(newLi);
+        })
+    };
+    getDegrees();
+
+    //add html content filled from localstorage(experience page inputs)
     displayExperienceHeader.style.display = 'block';
     //
     for(let i = 0; i <= localStorage.getItem('size'); i++){
@@ -61,6 +89,19 @@ window.onload = ()=>{
     
 };
 
+
+//custom dropdown menu 
+dropDown.addEventListener('click',()=>{
+    menu.classList.toggle('menu-open');
+
+    const options = document.querySelectorAll('.menu li');
+    options.forEach(option =>{
+    option.addEventListener('click',()=>{
+        selected.textContent = option.textContent
+    })
+   });
+
+});
 
 
 
