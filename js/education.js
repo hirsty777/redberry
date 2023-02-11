@@ -1,12 +1,19 @@
 //variables /////////////////////////////////////////////////
-const addMoreDisplayBox = document.getElementById('experience-live-display-added');//place where content gets added afret add more btn is clickde(inputs display)
+const addMoreDisplayBox = document.getElementById('experience-live-display-added');
+
+//used to count haw many times add more BTN was clicked
+let numb = localStorage.getItem('sizeEd') ? Number(localStorage.getItem('sizeEd')) : 0;
+let degreesArray = [];
+
+const addMoreEducationBTn= document.getElementById('add-more-experience-btn');
+const addMoreEducationBox = document.getElementById('add-more-education-box');
+const addMoreEducationDisplayBox = document.getElementById('education-live-display-added');
 const displayEducationHeader = document.getElementById('display-education-header');
 
-
 //dropdown menu
-const dropDown = document.getElementById('degree-dropdown');
-const menu = document.querySelector('.menu');
-const selected = document.querySelector('.selected');
+const dropDowns = document.querySelectorAll('.degree-dropdown');
+const menu = document.querySelectorAll('.menu');
+const selected = document.querySelectorAll('.selected');
 
 
 //variables to display inputs values from peronalinformation page       
@@ -21,7 +28,7 @@ const displayExperienceHeader = document.getElementById('display-experience-head
 
 
 //personal informations \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-//display personalinformation page input values (previos page values)
+//display personalinformation page input values (previos page values)@@@@@
 generalInfoHeader.style.display = 'block';
 displayFirstname.textContent = localStorage.getItem('firstname');
 displayLastname.textContent = localStorage.getItem('lastname');
@@ -53,25 +60,26 @@ window.onload = ()=>{
             throw new Error(`${response.status}`)
         }
         const data = await response.json();
+        degreesArray = data;
         //for each create li element and deploy on html
         data.forEach(value =>{
             const newLi = document.createElement('li');
             newLi.id = value.id;
+            newLi.className = 'list';
             newLi.innerHTML = value.title;
-            menu.appendChild(newLi);
-        })
+            menu[0].appendChild(newLi);
+        });
     };
     getDegrees();
-
+    
     //add html content filled from localstorage(experience page inputs)
     displayExperienceHeader.style.display = 'block';
-    //
+    //fill page (right sidei) with experience page inputs @@@@@
     for(let i = 0; i <= localStorage.getItem('size'); i++){
     //===========================================
         let displayDiv = document.createElement('div');
         displayDiv.className = 'experience-live-display';
         displayDiv.innerHTML = `
-
         <div class="job-wraper font-w5-s16">
         <div class="display-position">
             ${localStorage.getItem(`validPosition${i}`)}
@@ -90,7 +98,9 @@ window.onload = ()=>{
         addMoreDisplayBox.appendChild(displayDiv);
     }
 
-    //add html content filled from localstorage(education page inputs)
+
+
+    //add html content filled from localstorage(education page inputs) so data isnt lost in case page was refreshed
     //education  school inputs 
     if(JSON.parse(localStorage.getItem('schoolInput0'))){
         displayEducationHeader.style.display = 'block' ;
@@ -166,21 +176,23 @@ function schoolInput(value, index){
 };
 
 
-//degree //custom dropdown menu 
-dropDown.addEventListener('click',()=>{
-    const displayDegree = document.querySelectorAll('.display-degree')
-    
-    menu.classList.toggle('menu-open');
 
-    const options = document.querySelectorAll('.menu li');
-    options.forEach(option =>{
-    option.addEventListener('click',()=>{
-        selected.textContent = option.textContent;
-        displayDegree[0].textContent = selected.textContent;
-        localStorage.setItem(`degreeInput0`,option.textContent);
-    })
+//degree //custom dropdown menu  
+function degree(e,index){
+    const menu = document.querySelectorAll('.menu');
+    const options = document.querySelectorAll('.list');
+    const selected = document.querySelectorAll('.selected');
+    const displayDegree = document.querySelectorAll('.display-degree')
+    //show/hide options on click
+    menu[index].classList.toggle('menu-open');
+
+    menu[index].addEventListener('click',(event)=>{
+        selected[index].textContent = event.target.firstChild.nodeValue;
+        displayDegree[index].textContent = event.target.firstChild.nodeValue;
+        console.log(event.target.firstChild.nodeValue)
     });
-});
+};
+
 
 
 // education end date ==============
@@ -252,8 +264,93 @@ function experienceInfInput(value, index){
 
 
 
+addMoreEducationBTn.addEventListener('click',()=>{
+    numb += 1; 
+    localStorage.setItem('sizeEd',numb);
 
+    let div = document.createElement('div');
+    div.className = 'new-education-div';
+    div.innerHTML = `
+    <!--inputs //-->
+            <div class="school-box input-box-style1">
+                <label for="school" id="school-label-id" class="font-w5-s16 school-label">სასწავლებელი</label>
+                <input type="text" id="school-id" class="font-w4-s16 input-style1 school"
+                onkeyup="schoolInput(value,${numb})" placeholder="სასწავლებელი">
+                <p class="font-w3-s14">მინიმუმ 2 სიმბოლო</p>
+                <img src="/images/valid.svg" class="validVector school-valid-vector"  alt="valid vector">
+                <img src="/images/notVAlid.svg" class="notValidVector school-notvalid-vector" alt="not valid vector">
+            </div> 
+                <!--education degree and date-->
+            <div class="inputs-wrap work-date-box">
+                <div class="degree-box input-box-style2">
+                <!--dropdown-->
+                <label for="degree" id="degree-label-id" class="font-w5-s16 degree-label">ხარისხი</label>
+                <div id="degree-dropdown" class="input-style1 degree-dropdown" onclick="degree(event,${numb})">
+                    <div class="select">
+                    <span class="selected">აირჩიეთ ხარისხი</span>
+                    <span class="dropdown-arrow"></span>
+                    </div>
+                    <ul class="menu" >
+                            
+                    </ul>
+                    </div>
+                    <img src="/images/valid.svg" class="validVector degree-valid-vector"  alt="valid vector">
+                    <img src="/images/notVAlid.svg" class="notValidVector degree-notvalid-vector" alt="not valid vector">
+                </div>
+                <div class="endtime-box input-box-style2">
+                    <label for="endtime" id="endtime-label-id" class="font-w5-s16 endtime-label">დამთავრების რიცხვი</label>
+                    <input type="date" id="endtime-id" class="font-w4-s16 input-style1 endtime" onchange="endDateInput(value,${numb})">
+                    <img src="/images/valid.svg" class="validVector endtime-valid-vector"  alt="valid vector">
+                    <img src="/images/notVAlid.svg" class="notValidVector endtime-notvalid-vector" alt="not valid vector">
+                </div>
+                </div> 
+                <!--description textarea for wor education-->
+                <div class="experience-info-box">
+                    <span class="font-w5-s16 experience-label" id="experience-info-label">აღწერა</span>
+                    <textarea name="experience info" id="experience-info" class="font-w4-s16 experience" onkeyup="experienceInfInput(value,${numb})"
+                    placeholder="განათლების აღწერა"></textarea>
+                    <img src="/images/valid.svg" class="validVector experience-valid-vector"  alt="valid vector">
+                    <img src="/images/notVAlid.svg" class="notValidVector experience-notvalid-vector" alt="not valid vector">
+                </div>
+                <hr class="end-line-experience">`;
+    addMoreEducationBox.appendChild(div);
 
+    //===========================================
+    let displayDiv = document.createElement('div');
+    displayDiv.className = 'education-live-display';
+    displayDiv.innerHTML = `
+                <div class="education-live-display">
+                <div>
+                   <div class="education-wraper">
+                    <div class="display-school">
+                     
+                    </div>
+                    <div class="display-degree">
+                    
+                    </div>
+                    </div>
+                    <div class="display-education-date">
+                        <span class="display-education-end-date"></span>
+                    </div> 
+                </div>
+                <div class="display-education-info">
+                      
+                </div>
+            </div>`;
+ 
+    addMoreEducationDisplayBox.appendChild(displayDiv);
+
+    //fill dropdown BTN with options from api
+    const menu = document.querySelectorAll('.menu');
+    degreesArray.forEach(value =>{
+        console.log(value.title)
+        const newLi = document.createElement('li');
+        newLi.id = value.id;
+        newLi.className = 'list';
+        newLi.innerHTML = value.title;
+        menu[1].appendChild(newLi);
+    });
+});
 
 
 

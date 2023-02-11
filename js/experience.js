@@ -1,7 +1,8 @@
 //variables /////////////////////////////////////////////////
 const addMoreExpBox = document.getElementById('add-more-experience-box');//place where content gets added afret add more btn is clickde(inputs)
 const addMoreDisplayBox = document.getElementById('experience-live-display-added');//place where content gets added afret add more btn is clickde(inputs display)
-//
+
+//used to count haw many times add more BTN was clicked
 let numb = localStorage.getItem('size') ? Number(localStorage.getItem('size')) : 0;
 
 //variables to display inputs values from peronalinformation page       
