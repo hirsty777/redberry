@@ -439,25 +439,33 @@ addMoreEducationBTn.addEventListener('click',()=>{
 });
 
 
-
-
+// previous page
 prevBtn.addEventListener('click',()=>{
     window.location = 'experience.html'
 });
 
 
-
+// next page
 nextBtn.addEventListener('click',()=>{
+    
     let counter = -1;
-    for(let i = 0; i <= numb; i++){
-        if(localStorage.getItem(`validschool${i}`) && localStorage.getItem(`degreeInput${i}`) &&
-           localStorage.getItem(`validEducationEndtime${i}`) && localStorage.getItem(`validEducationTextBox${i}`) ){
+    //at least first form of inputs must be valid 
+    if(localStorage.getItem(`validschool${0}`) && localStorage.getItem(`degreeInput${0}`) &&
+       localStorage.getItem(`validEducationEndtime${0}`) && localStorage.getItem(`validEducationTextBox${0}`) ){
         counter += 1;
+        //if add more education was clicked then they must be either all valid or empty
+        for(let i = 1; i <= numb; i++){
+                if(localStorage.getItem(`validschool${i}`) && localStorage.getItem(`degreeInput${i}`) &&
+                    localStorage.getItem(`validEducationEndtime${i}`) && localStorage.getItem(`validEducationTextBox${i}`) ){
+                    counter += 1;
+                }else if(!localStorage.getItem(`validschool${i}`) && JSON.parse(localStorage.getItem(`schoolInput${i}`)).value == 0 && 
+                         !localStorage.getItem(`degreeInput${i}`) && !localStorage.getItem(`validEducationEndtime${i}`) && 
+                         !localStorage.getItem(`validEducationTextBox${i}`)){
+                    counter += 1;
+                }
         };
     };
     if(counter===numb){
         window.location = 'resume.html';
-    }else{
-        console.log('not vald')
     }
 });

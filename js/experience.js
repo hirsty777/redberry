@@ -432,16 +432,28 @@ experiencePrevBtn.addEventListener('click',()=>{
 //go to next page (education.html)
 experienceNextBtn.addEventListener('click',()=>{
     let counter = -1;
-    for(let i = 0; i <= numb; i++){
-        if(localStorage.getItem(`validPosition${i}`) && localStorage.getItem(`validEmployer${i}`) &&
-           localStorage.getItem(`validStartDate${i}`) && localStorage.getItem(`validEndtime${i}`) && 
-           localStorage.getItem(`validExperienceInfo${i}`)){
+   
+    if(localStorage.getItem(`validPosition0`) && localStorage.getItem(`validEmployer0`) &&
+        localStorage.getItem(`validStartDate0`) && localStorage.getItem(`validEndtime0`) && 
+        localStorage.getItem(`validExperienceInfo0`)){
         counter += 1;
+        //if add more education was clicked then they must be either all valid or empty
+        for(let i = 1; i <= numb; i++){
+            if(localStorage.getItem(`validPosition${i}`) && localStorage.getItem(`validEmployer${i}`) &&
+               localStorage.getItem(`validStartDate${i}`) && localStorage.getItem(`validEndtime${i}`) && 
+               localStorage.getItem(`validExperienceInfo${i}`)){
+                counter += 1;
+               }else if(JSON.parse(localStorage.getItem(`positionInput${i}`)).value == 0 &&
+                        JSON.parse(localStorage.getItem(`employerInput${i}`)).value == 0 &&
+                        JSON.parse(localStorage.getItem(`startDateInput${i}`)).value == 0 &&
+                        JSON.parse(localStorage.getItem(`endtimeInput${i}`)).value == 0 &&
+                        JSON.parse(localStorage.getItem(`experienceInput${i}`)).value == 0 ){
+                counter += 1;
+               }
         };
     };
+    
     if(counter===numb){
         window.location = 'education.html';
-    }else{
-        console.log('not vald')
     }
 });
