@@ -3,6 +3,7 @@ const addMoreDisplayBox = document.getElementById('experience-live-display-added
 
 //used to count haw many times add more BTN was clicked
 let numb = localStorage.getItem('sizeEd') ? Number(localStorage.getItem('sizeEd')) : 0;
+localStorage.setItem('educationAmount',0)
 let degreesArray = [];
 
 const addMoreEducationBTn= document.getElementById('add-more-experience-btn');
@@ -66,6 +67,7 @@ window.onload = ()=>{
             const newLi = document.createElement('li');
             newLi.id = value.id;
             newLi.className = 'list';
+            newLi.id = value.id;
             newLi.innerHTML = value.title;
             menu[0].appendChild(newLi);
         });
@@ -126,15 +128,15 @@ window.onload = ()=>{
                     <span class="dropdown-arrow"></span>
                     </div>
                     <ul class="menu" >
-                        <li id="" classname="list">${degreesArray[0].title}</li>
-                        <li id="" classname="list">${degreesArray[1].title}</li>
-                        <li id="" classname="list">${degreesArray[2].title}</li>
-                        <li id="" classname="list">${degreesArray[3].title}</li>
-                        <li id="" classname="list">${degreesArray[4].title}</li>
-                        <li id="" classname="list">${degreesArray[5].title}</li>
-                        <li id="" classname="list">${degreesArray[6].title}</li>
-                        <li id="" classname="list">${degreesArray[7].title}</li>
-                        <li id="" classname="list">${degreesArray[8].title}</li>
+                        <li id="${degreesArray[0].id}" classname="list">${degreesArray[0].title}</li>
+                        <li id="${degreesArray[0].id}" classname="list">${degreesArray[1].title}</li>
+                        <li id="${degreesArray[0].id}" classname="list">${degreesArray[2].title}</li>
+                        <li id="${degreesArray[0].id}" classname="list">${degreesArray[3].title}</li>
+                        <li id="${degreesArray[0].id}" classname="list">${degreesArray[4].title}</li>
+                        <li id="${degreesArray[0].id}" classname="list">${degreesArray[5].title}</li>
+                        <li id="${degreesArray[0].id}" classname="list">${degreesArray[6].title}</li>
+                        <li id="${degreesArray[0].id}" classname="list">${degreesArray[7].title}</li>
+                        <li id="${degreesArray[0].id}" classname="list">${degreesArray[8].title}</li>
                     </ul>
                     </div>
                     <img src="/images/valid.svg" class="validVector degree-valid-vector"  alt="valid vector">
@@ -277,6 +279,8 @@ function degree(index){
         selected[index].textContent = event.target.firstChild.nodeValue;
         displayDegree[index].textContent = event.target.firstChild.nodeValue;
         localStorage.setItem(`degreeInput${index}`,event.target.firstChild.nodeValue);
+        localStorage.setItem(`degID${index}`,event.target.id)
+        console.log(localStorage.getItem('degID0'))
     });
 };
 
@@ -354,6 +358,7 @@ function experienceInfInput(value, index){
 addMoreEducationBTn.addEventListener('click',()=>{
     numb += 1; 
     localStorage.setItem('sizeEd',numb);
+    localStorage.setItem('educationAmount',numb)
 
     let div = document.createElement('div');
     div.className = 'new-education-div';
@@ -433,6 +438,7 @@ addMoreEducationBTn.addEventListener('click',()=>{
         const newLi = document.createElement('li');
         newLi.id = value.id;
         newLi.className = 'list';
+        newLi.id = value.id;
         newLi.innerHTML = value.title;
         menu[numb].appendChild(newLi);
     });
@@ -468,4 +474,13 @@ nextBtn.addEventListener('click',()=>{
     if(counter===numb){
         window.location = 'resume.html';
     }
+});
+
+
+//back to main page (arrow BTN) 
+const backArrow = document.getElementById('personalInf-back-arrow');
+backArrow.addEventListener('click',()=>{
+    //clear 
+    localStorage.clear()
+    window.location = '../index.html'
 });

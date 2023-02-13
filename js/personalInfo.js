@@ -1,5 +1,6 @@
 //variables /////////////////////////////////////////////////
-//personal infromation page, inputs     
+//personal infromation page, inputs      
+
 const firstNameInput = document.getElementById('first-name');
 const lastNameInput = document.getElementById('last-name');
 const uploadedImage = document.getElementById('personal-image');
@@ -169,14 +170,28 @@ uploadedImage.addEventListener('change',()=>{
         perImgUpload.style.color = '#98E37E'
     }
     //live update in page
+    
+    //console.log(uploadedImage.files[0])
+    let image = uploadedImage.files[0];
+
+    //localStorage.setItem('perosnalImg',JSON.stringify(uploadedImage.files[0]))
+
+    let bb = new File([''],image.name,{type:image.type,lastModified:image.lastModified});
+    
+
     let reader = new FileReader();
     reader.readAsDataURL(uploadedImage.files[0]);
     reader.addEventListener('load',()=>{
+        
         displayUploadedImage.innerHTML = `<img src="${reader.result}" alt="personal image">`
         localStorage.setItem('perosnalImg',reader.result)
+       
+
     })
    
 });
+
+console.log(JSON.parse(localStorage.getItem('tesimage')));
 
 
 //back to main page (arrow BTN) 
@@ -190,9 +205,11 @@ backArrow.addEventListener('click',()=>{
 
 //to next page BTN
 personalInfoNextBtn.addEventListener('click',()=>{
+
     if(localStorage.getItem('validFirstname') && localStorage.getItem('validLastname')&&
     localStorage.getItem('validEmail') && localStorage.getItem('validPhone') &&
     localStorage.getItem('perosnalImg')) {
+
         window.location = 'experience.html'
     }else{
         const perImgUpload = document.getElementById('personal-img-upload');//change style on iamge upload text
@@ -201,5 +218,6 @@ personalInfoNextBtn.addEventListener('click',()=>{
     }
     
 });
+
 
 

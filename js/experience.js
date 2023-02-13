@@ -4,7 +4,7 @@ const addMoreDisplayBox = document.getElementById('experience-live-display-added
 
 //used to count haw many times add more BTN was clicked
 let numb = localStorage.getItem('size') ? Number(localStorage.getItem('size')) : 0;
-
+localStorage.setItem('experienceAmount',0);
 //variables to display inputs values from peronalinformation page       
 const displayFirstname = document.getElementById('display-firstname');
 const displayLastname = document.getElementById('display-lastname');
@@ -350,6 +350,7 @@ function experienceInfInput(value, index){
 addMoreExp.addEventListener('click',()=>{
     numb += 1; 
     localStorage.setItem('size',numb);
+    localStorage.setItem('experienceAmount',numb);
 
     let div = document.createElement('div');
     div.className = 'new-experience-div';
@@ -456,4 +457,13 @@ experienceNextBtn.addEventListener('click',()=>{
     if(counter===numb){
         window.location = 'education.html';
     }
+});
+
+
+//back to main page (arrow BTN) 
+const backArrow = document.getElementById('personalInf-back-arrow');
+backArrow.addEventListener('click',()=>{
+    //clear 
+    localStorage.clear()
+    window.location = '../index.html'
 });

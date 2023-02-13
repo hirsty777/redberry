@@ -596,3 +596,19 @@ body{
 }
 /* \\\\\\\\\\\\\\\\\\\\\*/
 
+
+/* 4 styles for resume page ==============>*/
+
+
+.resume-box{
+    width: 822px;
+    min-height: 100vh;
+    margin: 54px auto 129px auto;
+    background: #FFFFFF;
+    border: 0.8px solid #000000;
+}
+#comment{
+    position: absolute;
+    top: -10px;
+    left: 50%;
+}
