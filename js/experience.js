@@ -444,17 +444,18 @@ experienceNextBtn.addEventListener('click',()=>{
                localStorage.getItem(`validStartDate${i}`) && localStorage.getItem(`validEndtime${i}`) && 
                localStorage.getItem(`validExperienceInfo${i}`)){
                 counter += 1;
-               }else if(JSON.parse(localStorage.getItem(`positionInput${i}`)).value == 0 &&
-                        JSON.parse(localStorage.getItem(`employerInput${i}`)).value == 0 &&
-                        JSON.parse(localStorage.getItem(`startDateInput${i}`)).value == 0 &&
-                        JSON.parse(localStorage.getItem(`endtimeInput${i}`)).value == 0 &&
-                        JSON.parse(localStorage.getItem(`experienceInput${i}`)).value == 0 ){
+               }else if(!JSON.parse(localStorage.getItem(`positionInput${i}`)) &&
+                        !JSON.parse(localStorage.getItem(`employerInput${i}`)) &&
+                        !JSON.parse(localStorage.getItem(`startDateInput${i}`)) &&
+                        !JSON.parse(localStorage.getItem(`endtimeInput${i}`)) &&
+                        !JSON.parse(localStorage.getItem(`experienceInput${i}`))){
                 counter += 1;
                }
         };
     };
-    
+    console.log(counter===numb)
     if(counter===numb){
+       
         window.location = 'education.html';
     }
 });

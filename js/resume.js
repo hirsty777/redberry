@@ -21,12 +21,12 @@ window.onload = ()=>{
             description:`${localStorage.getItem(`validEducationTextBox${i}`)}`
         })
     }
-    console.log(localStorage.getItem('degID0'))
     const formData = new FormData();
     formData.append('name',localStorage.getItem('validFirstname'));
     formData.append('surname',localStorage.getItem('validLastname'));
     formData.append('email',localStorage.getItem('validEmail'));
     formData.append('phone_number',"+"+localStorage.getItem('validPhone'));
+    formData.append('about_me',localStorage.getItem('generalInfo'));
     for(let i = 0; i <experiences.length ;i++){
         formData.append(`experiences[${i}][position]`,experiences[i].position);
         formData.append(`experiences[${i}][employer]`,experiences[i].employer);
@@ -74,8 +74,10 @@ window.onload = ()=>{
         console.log(responseData)
 
 
+
         
 
+         
         const firstData = document.getElementById('first-data');
         let div = document.createElement('div');
         div.innerHTML = `
@@ -109,7 +111,7 @@ window.onload = ()=>{
         </div>
         <!--image side-->
         <div class="personalInfo-live-display-image" id="display-image">
-            <img src="${responseData.image} " alt="">
+           
         </div>
         `;
         firstData.appendChild(div);

@@ -330,10 +330,12 @@ body{
 
 /* personalIbfo RIGHT side =============================*/
 .personalInfo-right-container{
+    position: relative;
     width: 43%;
 }
 
 .personalInfo-live-display{
+    
     width: 662px;
     margin: 48px auto 0 auto;
     display: flex;
@@ -611,4 +613,12 @@ body{
     position: absolute;
     top: -10px;
     left: 50%;
+}
+
+.resume-bottom-logo{
+    position: absolute;
+    width: 42px;
+    left: 78px;
+    height: 42px;
+    bottom: 44px;
 }

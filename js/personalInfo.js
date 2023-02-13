@@ -100,8 +100,9 @@ generalInfo.addEventListener('keyup',()=>{
     displayAbout.textContent = generalInfo.value;
     //if ther is value then show header  (ჩემ შესახებ) if not hide 
     generalInfo.value.trim() != '' ? generalInfoHeader.style.display = 'block' :  generalInfoHeader.style.display = 'none';
-    if(generalInfo.value.trim() != ''){
+    if(generalInfo.value.trim() != ' '){
         localStorage.setItem('generalInfo',generalInfo.value);
+        console.log(localStorage.getItem('generalInfo'))
     }else{
         localStorage.removeItem('generalInfo');
     }
@@ -117,7 +118,7 @@ emailInput.addEventListener('keyup',()=>{
     const emailLabel = document.getElementById('email-label');
     const emailValidVector = document.getElementById('email-valid-vector');
     const emailNotValidVector = document.getElementById('email-notvalid-vector');
-    let regex = new RegExp('[a-z0-9]+@redberry.ge$');
+    let regex = new RegExp('[a-z0-9._-]+@redberry.ge$');
     if(regex.test(emailInput.value)){
         //valid
         emailLabel.style.color = '#000000';
@@ -214,6 +215,52 @@ personalInfoNextBtn.addEventListener('click',()=>{
     }else{
         const perImgUpload = document.getElementById('personal-img-upload');//change style on iamge upload text
         perImgUpload.style.color = '#E52F2F'
+        //alerts not valid firstname input
+        if(!localStorage.getItem('validFirstname') ){
+            const firstnameLabel = document.getElementById('first-name-label');
+            const firstnameValidVector = document.getElementById('first-name-valid-vector');
+            const firstnameNotValidVector = document.getElementById('first-name-notvalid-vector');
+            firstnameLabel.style.color = '#E52F2F';
+            firstNameInput.style.borderColor = '#E52F2F';
+            firstnameNotValidVector.style.display = 'block'; 
+            firstnameValidVector.style.display = 'none';
+        }
+        //alerts not valid lastname input
+        if(!localStorage.getItem('validLastname')){
+            const lastNameLabel = document.getElementById('last-name-label');
+            const lastnameValidVector = document.getElementById('last-name-valid-vector');
+            const lastnameNotValidVector = document.getElementById('last-name-notvalid-vector');
+            //not valid
+            lastNameLabel.style.color = '#E52F2F';
+            lastNameInput.style.borderColor= '#E52F2F';
+            lastnameNotValidVector.style.display = 'block'; 
+            lastnameValidVector.style.display = 'none';
+        }
+        //alerts not valid email input 
+        if(!localStorage.getItem('validEmail')){
+            const emailLabel = document.getElementById('email-label');
+            const emailValidVector = document.getElementById('email-valid-vector');
+            const emailNotValidVector = document.getElementById('email-notvalid-vector');
+            //not valid
+            //not valid
+            emailLabel.style.color = '#E52F2F';
+            emailInput.style.borderColor= '#E52F2F';
+            emailNotValidVector.style.display = 'block'; 
+            emailValidVector.style.display = 'none';
+        }
+        //alerts not valid number input 
+        if(!localStorage.getItem('validEmail')){
+            const numberLabel = document.getElementById('number-label');
+            const numberValidVector = document.getElementById('number-valid-vector');
+            const numberNotValidVector = document.getElementById('number-notvalid-vector');
+            //not valid
+            //not valid
+            numberLabel.style.color = '#E52F2F';
+            phoneNumberInput.style.borderColor= '#E52F2F';
+            numberNotValidVector.style.display = 'block'; 
+            numberValidVector.style.display = 'none';
+        }
+
         return
     }
     
