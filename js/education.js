@@ -67,7 +67,6 @@ window.onload = ()=>{
             const newLi = document.createElement('li');
             newLi.id = value.id;
             newLi.className = 'list';
-            newLi.id = value.id;
             newLi.innerHTML = value.title;
             menu[0].appendChild(newLi);
         });
@@ -280,7 +279,7 @@ function degree(index){
         displayDegree[index].textContent = event.target.firstChild.nodeValue;
         localStorage.setItem(`degreeInput${index}`,event.target.firstChild.nodeValue);
         localStorage.setItem(`degID${index}`,event.target.id)
-        console.log(localStorage.getItem('degID0'))
+        console.log(localStorage.getItem(`degID${index}`))
     });
 };
 
@@ -438,7 +437,6 @@ addMoreEducationBTn.addEventListener('click',()=>{
         const newLi = document.createElement('li');
         newLi.id = value.id;
         newLi.className = 'list';
-        newLi.id = value.id;
         newLi.innerHTML = value.title;
         menu[numb].appendChild(newLi);
     });

@@ -21,7 +21,7 @@ window.onload = ()=>{
             description:`${localStorage.getItem(`validEducationTextBox${i}`)}`
         })
     }
-
+    console.log(localStorage.getItem('degID0'))
     const formData = new FormData();
     formData.append('name',localStorage.getItem('validFirstname'));
     formData.append('surname',localStorage.getItem('validLastname'));
